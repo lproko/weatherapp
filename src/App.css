@@ -1,0 +1,35 @@
+
+.mantine-Menu-item:hover{
+   
+   p {color: black;}
+}
+
+
+
+
+.mantine-Carousel-control {
+   
+   border: none !important;
+   background-color: transparent !important;
+   box-shadow: none !important;
+   color:#F5B747 !important;
+   
+   &:hover{
+      background-color: white !important;
+   }
+ }
+
+ 
+ /* .mantine-Carousel-controls {
+   transition: opacity 150ms ease;
+   opacity: 0;
+   
+ }
+ 
+ .mantine-Carousel-root {
+   &:hover {
+      .mantine-Carousel-controls {
+       opacity: 1;
+     }
+   }
+ } */
