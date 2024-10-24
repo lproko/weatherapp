@@ -16,12 +16,25 @@ import {
   LineElement,
 } from "chart.js";
 
-// Register required components from Chart.js
 Chart.register(CategoryScale, LinearScale, PointElement, LineElement);
+
 const weatherIcons = [Icon1, Icon2, Icon3, Icon4, Icon5, Icon6, Icon7];
 
+interface Label {
+  time: string;
+  wind: string;
+}
+
 const data = {
-  labels: ["Now", "22:00", "00:00", "2:00", "4:00", "6:00", "8:00"],
+  labels: [
+    { time: "Now", wind: "11.7km/h" },
+    { time: "22:00", wind: "9.3km/h" },
+    { time: "00:00", wind: "12km/h" },
+    { time: "2:00", wind: "15km/h" },
+    { time: "4:00", wind: "15km/h" },
+    { time: "6:00", wind: "15km/h" },
+    { time: "8:00", wind: "15km/h" },
+  ],
   datasets: [
     {
       label: "Temperature",
@@ -49,8 +62,8 @@ const options = {
     padding: {
       top: 25,
       bottom: 35,
-      left: 10,
-      right: 10,
+      left: 20,
+      right: 15,
     },
   },
   scales: {
@@ -90,46 +103,48 @@ const WeatherChart = () => {
                 const ctx = chart.ctx;
                 const dataset = chart.data.datasets[0];
                 const meta = chart.getDatasetMeta(0);
-                // const chartArea = chart.chartArea;
 
-                if (chart.data.labels) {
-                  dataset.data.forEach((value, index) => {
-                    const point = meta.data[index].getProps(["x", "y"], true);
+                const labels = chart.data.labels as Label[];
 
-                    ctx.font = "bold 12px Inter";
-                    ctx.fillStyle = "#ffffff";
-                    ctx.textAlign = "center";
-                    ctx.textBaseline = "middle";
+                labels.forEach((label, index) => {
+                  const point = meta.data[index].getProps(["x", "y"], true);
 
-                    const x = point.x;
-                    const y = point.y - 15;
+                  ctx.font = "bold 12px Inter";
+                  ctx.fillStyle = "#ffffff";
+                  ctx.textAlign = "center";
+                  ctx.textBaseline = "middle";
 
-                    ctx.fillText(`${value}°`, x, y);
+                  const x = point.x;
+                  const y = point.y - 15;
+                  ctx.fillText(`${dataset.data[index]}°`, x, y);
 
-                    const timeLabel = chart.data.labels![index];
-                    ctx.font = "normal 12px Inter";
-                    ctx.fillStyle = "#ffffff";
-                    ctx.textAlign = "center";
-                    ctx.textBaseline = "middle";
+                  // Draw wind label
+                  ctx.font = "normal 9px Inter";
+                  ctx.fillStyle = "#ffffff";
+                  ctx.textAlign = "center";
+                  ctx.textBaseline = "middle";
+                  const windLabelY = point.y + 52;
+                  ctx.fillText(label.wind, x, windLabelY);
 
-                    const timeLabelY = point.y + 60;
-                    ctx.fillText(timeLabel as any, x, timeLabelY);
-                    const img = new Image();
-                    img.src = weatherIcons[index];
+                  // Draw time label
+                  const timeLabelY = point.y + 65;
+                  ctx.fillText(label.time, x, timeLabelY);
 
-                    const iconSize = 20;
-                    const iconX = x - iconSize / 2;
-                    const iconY = point.y + 25;
+                  // Draw weather icon
+                  const img = new Image();
+                  img.src = weatherIcons[index];
+                  const iconSize = 20;
+                  const iconX = x - iconSize / 2;
+                  const iconY = point.y + 25;
 
-                    img.onload = () => {
-                      ctx.drawImage(img, iconX, iconY, iconSize, iconSize);
-                    };
-                  });
-                }
+                  img.onload = () => {
+                    ctx.drawImage(img, iconX, iconY, iconSize, iconSize);
+                  };
+                });
               },
             },
           ]}
-          height={100} // Control chart height
+          height={100}
         />
       </Box>
     </Box>

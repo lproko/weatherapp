@@ -25,7 +25,10 @@ const Activities = () => {
     },
   ];
   return (
-    <Box className="rounded-xl p-[54px] pt-[27px] pb-[34px] " bg="gray">
+    <Box
+      className="hidden lg:block rounded-xl p-[54px] pt-[27px] pb-[34px] "
+      bg="gray"
+    >
       <Flex className="flex justify-start">
         <img src={HeartIcon} alt="" />
         <Text className="font-inter text-2xl text-white ml-0.5">

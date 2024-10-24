@@ -23,7 +23,7 @@ const UserButton = forwardRef<HTMLButtonElement, UserButtonProps>(
         <Flex className="flex items-center">
           <img src={LocationIcon} alt="" />
 
-          <Text className="font-inter text-2xl text-white ml-[11px]">
+          <Text className="font-inter text-xl lg:text-2xl  text-white ml-[10px]">
             {location}
           </Text>
 
@@ -38,24 +38,26 @@ const UserButton = forwardRef<HTMLButtonElement, UserButtonProps>(
 
 const SelectLocation = () => {
   return (
-    <Box>
-      <Menu offset={-7} position="right">
-        <Menu.Target>
-          <UserButton location="New York" />
-        </Menu.Target>
-        <Menu.Dropdown bg="transparent">
-          <Menu.Item className="p-0">
-            <Text className="font-inter text-2xl text-white ">New York</Text>
-          </Menu.Item>
-          <Menu.Item className="p-0">
-            <Text className="font-inter text-2xl text-white ">New York</Text>
-          </Menu.Item>
-          <Menu.Item className="p-0">
-            <Text className="font-inter text-2xl text-white ">New York</Text>
-          </Menu.Item>
-        </Menu.Dropdown>
-      </Menu>
-    </Box>
+    <Flex className="flex grow justify-between">
+      <Box>
+        <Menu offset={-7} position="right">
+          <Menu.Target>
+            <UserButton location="New York" />
+          </Menu.Target>
+          <Menu.Dropdown bg="transparent">
+            <Menu.Item className="p-0">
+              <Text className="font-inter text-2xl text-white ">New York</Text>
+            </Menu.Item>
+            <Menu.Item className="p-0">
+              <Text className="font-inter text-2xl text-white ">New York</Text>
+            </Menu.Item>
+            <Menu.Item className="p-0">
+              <Text className="font-inter text-2xl text-white ">New York</Text>
+            </Menu.Item>
+          </Menu.Dropdown>
+        </Menu>
+      </Box>
+    </Flex>
   );
 };
 

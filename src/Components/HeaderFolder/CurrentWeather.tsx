@@ -1,16 +1,32 @@
-import { Box, Text } from "@mantine/core";
+import { Box, Flex, Text } from "@mantine/core";
+import CloudIcon from "../../assets/icon.svg";
 
 const CurrentWeather = () => {
   return (
-    <Box className="mt-10">
-      <Text className="font-inter text-5xl text-white">Rainy</Text>
-      <Box className="mt-[100px]">
-        <Text className="font-inter text-5xl text-white">14 C</Text>
-        <Text className="font-inter text-5xl text-white">
-          Sunday | 12 Dec 2023
-        </Text>
-      </Box>
-    </Box>
+    <Flex className="grow justify-between">
+      <Flex className="flex grow justify-center lg:justify-start">
+        <Box className="mt-10">
+          <Text className="font-inter text-2xl lg:text-5xl text-white text-center lg:text-left">
+            Rainy
+          </Text>
+          <Flex className="flex lg:hidden mt-5 ">
+            <img src={CloudIcon} alt="" width="200px" height="200px" />
+          </Flex>
+          <Box className=" mt-5 lg:mt-[80px] ">
+            <Text className="font-inter text-[64px] text-white text-center lg:text-left">
+              26°C
+            </Text>
+            <Text className="font-inter text-lg text-white text-center lg:text-left">
+              Sunday | 12 Dec 2023
+            </Text>
+          </Box>
+        </Box>
+      </Flex>
+
+      <Flex className="hidden lg:flex">
+        <img src={CloudIcon} alt="" />
+      </Flex>
+    </Flex>
   );
 };
 

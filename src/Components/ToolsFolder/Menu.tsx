@@ -7,7 +7,10 @@ import Avatar from "../../assets/avatar.png";
 
 const Menu = () => {
   return (
-    <Box className="rounded-xl p-[20px] pt-[20px] pb-[20px] " bg="gray">
+    <Box
+      className="hidden lg:block rounded-xl p-[20px] pt-[20px] pb-[20px] "
+      bg="gray"
+    >
       <Flex className="h-[60px] w-[60px] rounded-full justify-center items-center">
         <img src={Avatar} alt="" />
       </Flex>

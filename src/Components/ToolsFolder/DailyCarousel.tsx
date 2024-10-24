@@ -6,12 +6,12 @@ interface Properties {
   weather: string;
 }
 interface DailyCarouselProps {
-  dais: Properties[]; // This makes 'dais' an array of 'Properties'
+  dais: Properties[];
 }
 
 const DailyCarousel = ({ dais }: DailyCarouselProps) => {
   return (
-    <Box className="rounded-xl  pt-[20px] pb-[20px] w-[320px] " bg="gray">
+    <Box className="rounded-xl grow pt-[20px] pb-[20px] w-[320px] " bg="gray">
       <Carousel
         className="pl-8 pr-8"
         height={60}
@@ -29,7 +29,7 @@ const DailyCarousel = ({ dais }: DailyCarouselProps) => {
           </Carousel.Slide>
         ))}
       </Carousel>
-      <Flex className="items-center justify-center">
+      <Flex className=" hidden lg:flex items-center justify-center">
         <img src={Clock} alt="" />
         <Text className="font-inter text-white text-lg">8:00PM GMT</Text>
       </Flex>
