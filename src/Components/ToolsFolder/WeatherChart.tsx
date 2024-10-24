@@ -1,5 +1,5 @@
 import { Line } from "react-chartjs-2";
-import { Box, Flex, Text } from "@mantine/core";
+import { Box, Button, Flex, Text } from "@mantine/core";
 import Clock from "../../assets/dailyweathericons/Clock.svg";
 import Icon1 from "../../assets/charticons/117.png";
 import Icon2 from "../../assets/charticons/113.png";
@@ -146,6 +146,13 @@ const WeatherChart = () => {
           ]}
           height={100}
         />
+        <Flex className=" flex lg:hidden justify-center mt-5 ">
+          <Button className=" h-[30px] w-[205px] rounded-xl bg-[#EACA8F] ">
+            <Text className="font-inter text-base text-white text-center">
+              5-day forecast
+            </Text>
+          </Button>
+        </Flex>
       </Box>
     </Box>
   );
