@@ -4,31 +4,39 @@ import Wind from "../../assets/dailyweathericons/Wind.svg";
 import Rain from "../../assets/dailyweathericons/Rain.svg";
 import UVIndex from "../../assets/dailyweathericons/Sun.svg";
 import BackIcon from "../../assets/dailyweathericons/conditions-icon.svg";
+import { useContext } from "react";
+import { LocationContext } from "../../context/LocationContext";
+import { DailyData } from "../../type";
 
 const conditions = [
   {
     name: "Real Feel",
+    dataName: "realFeel",
     value: "30°",
     icon: Thermo,
   },
   {
     name: "Wind",
+    dataName: "wind",
     value: "0.8 km/hr",
     icon: Wind,
   },
   {
     name: "Chance of rain",
+    dataName: "rain",
     value: "30°",
     icon: Rain,
   },
   {
     name: "Real Feel",
+    dataName: "temp",
     value: "2%",
     icon: UVIndex,
   },
 ];
 
 const AirConditions = () => {
+  const ctx = useContext(LocationContext);
   return (
     <Box className="mt-[10px] pl-4 relative">
       <Text className="font-inter text-white text-base font-bold ">
@@ -43,7 +51,10 @@ const AirConditions = () => {
                 {items.name}
               </Text>
               <Text className="font-inter text-white text-xs font-medium ">
-                {items.value}
+                {ctx.location?.dailyData &&
+                  ctx.location?.dailyData[idx][
+                    items.dataName as keyof DailyData
+                  ]}
               </Text>
             </Flex>
           </Flex>

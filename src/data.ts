@@ -1,0 +1,88 @@
+const Locations = [
+  {
+    name: "Athens",
+    weatherDescription: "Sunny",
+    temperature: "27°C",
+    hourlyData: [
+      { time: "09:00", wind: "15km/h", icon: "sunny.png", temp: "27°C" },
+      { time: "12:00", wind: "10km/h", icon: "sunny.png", temp: "29°C" },
+      { time: "15:00", wind: "12km/h", icon: "sunny.png", temp: "30°C" },
+      { time: "18:00", wind: "14km/h", icon: "sunny.png", temp: "28°C" },
+      { time: "21:00", wind: "10km/h", icon: "clear.png", temp: "25°C" },
+      { time: "00:00", wind: "8km/h", icon: "clear.png", temp: "22°C" },
+      { time: "03:00", wind: "6km/h", icon: "clear.png", temp: "20°C" },
+    ],
+    dailyData: [
+      { day: "Monday", wind: "10km/h", rain: "0%", realFeel: "28°C", icon: "sunny.png", temp: "27°C" },
+      { day: "Tuesday", wind: "12km/h", rain: "5%", realFeel: "27°C", icon: "partlycloudy.png", temp: "26°C" },
+      { day: "Wednesday", wind: "15km/h", rain: "10%", realFeel: "26°C", icon: "cloudy.png", temp: "24°C" },
+      { day: "Thursday", wind: "18km/h", rain: "15%", realFeel: "25°C", icon: "rainy.png", temp: "22°C" },
+      { day: "Friday", wind: "20km/h", rain: "20%", realFeel: "24°C", icon: "thunderstorm.png", temp: "21°C" },
+    ],
+  },
+  {
+    name: "Madrid",
+    weatherDescription: "Cloudy",
+    temperature: "25°C",
+    hourlyData: [
+      { time: "09:00", wind: "8km/h", icon: "cloudy.png", temp: "23°C" },
+      { time: "12:00", wind: "10km/h", icon: "cloudy.png", temp: "25°C" },
+      { time: "15:00", wind: "13km/h", icon: "cloudy.png", temp: "26°C" },
+      { time: "18:00", wind: "11km/h", icon: "partlycloudy.png", temp: "24°C" },
+      { time: "21:00", wind: "9km/h", icon: "clear.png", temp: "22°C" },
+      { time: "00:00", wind: "7km/h", icon: "clear.png", temp: "20°C" },
+      { time: "03:00", wind: "5km/h", icon: "clear.png", temp: "18°C" },
+    ],
+    dailyData: [
+      { day: "Monday", wind: "10km/h", rain: "10%", realFeel: "26°C", icon: "cloudy.png", temp: "25°C" },
+      { day: "Tuesday", wind: "12km/h", rain: "20%", realFeel: "24°C", icon: "rainy.png", temp: "23°C" },
+      { day: "Wednesday", wind: "15km/h", rain: "30%", realFeel: "22°C", icon: "thunderstorm.png", temp: "21°C" },
+      { day: "Thursday", wind: "18km/h", rain: "40%", realFeel: "20°C", icon: "rainy.png", temp: "19°C" },
+      { day: "Friday", wind: "20km/h", rain: "50%", realFeel: "18°C", icon: "rainy.png", temp: "17°C" },
+    ],
+  },
+  {
+    name: "Paris",
+    weatherDescription: "Rainy",
+    temperature: "20°C",
+    hourlyData: [
+      { time: "09:00", wind: "20km/h", icon: "rain.png", temp: "18°C" },
+      { time: "12:00", wind: "18km/h", icon: "rain.png", temp: "20°C" },
+      { time: "15:00", wind: "22km/h", icon: "rain.png", temp: "19°C" },
+      { time: "18:00", wind: "25km/h", icon: "rain.png", temp: "18°C" },
+      { time: "21:00", wind: "23km/h", icon: "rain.png", temp: "17°C" },
+      { time: "00:00", wind: "20km/h", icon: "rain.png", temp: "16°C" },
+      { time: "03:00", wind: "18km/h", icon: "rain.png", temp: "15°C" },
+    ],
+    dailyData: [
+      { day: "Monday", wind: "20km/h", rain: "70%", realFeel: "19°C", icon: "rain.png", temp: "18°C" },
+      { day: "Tuesday", wind: "22km/h", rain: "80%", realFeel: "18°C", icon: "rain.png", temp: "17°C" },
+      { day: "Wednesday", wind: "25km/h", rain: "90%", realFeel: "17°C", icon: "thunderstorm.png", temp: "16°C" },
+      { day: "Thursday", wind: "27km/h", rain: "60%", realFeel: "16°C", icon: "rain.png", temp: "15°C" },
+      { day: "Friday", wind: "30km/h", rain: "50%", realFeel: "15°C", icon: "cloudy.png", temp: "14°C" },
+    ],
+  },
+  {
+    name: "New York",
+    weatherDescription: "Stormy",
+    temperature: "30°C",
+    hourlyData: [
+      { time: "09:00", wind: "5km/h", icon: "sunny.png", temp: "28°C" },
+      { time: "12:00", wind: "8km/h", icon: "sunny.png", temp: "30°C" },
+      { time: "15:00", wind: "10km/h", icon: "sunny.png", temp: "31°C" },
+      { time: "18:00", wind: "7km/h", icon: "clear.png", temp: "29°C" },
+      { time: "21:00", wind: "5km/h", icon: "clear.png", temp: "27°C" },
+      { time: "00:00", wind: "4km/h", icon: "clear.png", temp: "25°C" },
+      { time: "03:00", wind: "3km/h", icon: "clear.png", temp: "24°C" },
+    ],
+    dailyData: [
+      { day: "Monday", wind: "10km/h", rain: "0%", realFeel: "32°C", icon: "sunny.png", temp: "30°C" },
+      { day: "Tuesday", wind: "12km/h", rain: "0%", realFeel: "31°C", icon: "sunny.png", temp: "29°C" },
+      { day: "Wednesday", wind: "8km/h", rain: "5%", realFeel: "30°C", icon: "cloudy.png", temp: "28°C" },
+      { day: "Thursday", wind: "15km/h", rain: "10%", realFeel: "28°C", icon: "rainy.png", temp: "26°C" },
+      { day: "Friday", wind: "18km/h", rain: "15%", realFeel: "27°C", icon: "thunderstorm.png", temp: "25°C" },
+    ],
+  },
+];
+
+export default Locations;

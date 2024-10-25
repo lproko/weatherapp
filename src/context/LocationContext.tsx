@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { DailyData, HourlyData } from "../type";
+import Locations from "../data";
 
 export type Location = {
   name: string;
-  weatherDesription?: string;
-  temperatur?: string;
+  weatherDescription?: string;
+  temperature?: string;
   hourlyData?: HourlyData[];
   dailyData?: DailyData[];
 };
@@ -15,12 +16,12 @@ type LocationContextType = {
 };
 
 export const LocationContext = React.createContext<LocationContextType>({
-  location: { name: "Athens" },
+  location: Locations[0],
   updateLocation: (_location: Location) => {},
 });
 
 export const LocationContextProvider = (props: any) => {
-  const [place, setPlace] = useState({ name: "Athens" });
+  const [place, setPlace] = useState<Location>(Locations[0]);
 
   const updateLocation = (location: Location) => {
     setPlace(location);

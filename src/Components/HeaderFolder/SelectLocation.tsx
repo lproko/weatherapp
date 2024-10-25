@@ -3,6 +3,7 @@ import { forwardRef, useContext } from "react";
 import { IconChevronRight } from "@tabler/icons-react";
 import LocationIcon from "../../assets/Frame 3.svg";
 import { LocationContext } from "../../context/LocationContext";
+import Locations from "../../data";
 
 interface UserButtonProps extends React.ComponentPropsWithoutRef<"button"> {
   location: any;
@@ -25,7 +26,7 @@ const UserButton = forwardRef<HTMLButtonElement, UserButtonProps>(
           <img src={LocationIcon} alt="" />
 
           <Text className="font-inter text-xl lg:text-2xl  text-white ml-[10px]">
-            {location.name}
+            {location?.name}
           </Text>
 
           <Text className="ml-[5px]">
@@ -38,6 +39,12 @@ const UserButton = forwardRef<HTMLButtonElement, UserButtonProps>(
 );
 
 const SelectLocation = () => {
+  const handleUpdateLocation = (e: any) => {
+    const currentLocation = Locations.filter((place) => {
+      return place.name === e.target.innerText;
+    });
+    ctx.updateLocation(currentLocation[0]);
+  };
   const ctx = useContext(LocationContext);
   return (
     <Flex className="flex grow justify-between">
@@ -47,24 +54,17 @@ const SelectLocation = () => {
             <UserButton location={ctx.location} />
           </Menu.Target>
           <Menu.Dropdown bg="transparent">
-            <Menu.Item
-              className="p-0"
-              onClick={() => ctx.updateLocation({ name: "Paris" })}
-            >
-              <Text className="font-inter text-2xl text-white ">Paris</Text>
-            </Menu.Item>
-            <Menu.Item
-              className="p-0"
-              onClick={() => ctx.updateLocation({ name: "Madrid" })}
-            >
-              <Text className="font-inter text-2xl text-white ">Madrid</Text>
-            </Menu.Item>
-            <Menu.Item
-              className="p-0"
-              onClick={() => ctx.updateLocation({ name: "New York" })}
-            >
-              <Text className="font-inter text-2xl text-white ">New York</Text>
-            </Menu.Item>
+            {Locations.map((place: any, idx: number) => (
+              <Menu.Item
+                key={idx}
+                className="p-0"
+                onClick={(e) => handleUpdateLocation(e)}
+              >
+                <Text className="font-inter text-2xl text-white ">
+                  {place?.name}
+                </Text>
+              </Menu.Item>
+            ))}
           </Menu.Dropdown>
         </Menu>
       </Box>
