@@ -1,4 +1,4 @@
-# WeatherUps
+# WeatherApp
 
 This repository contains a simple weather app built with React, TypeScript, and Vite. The application displays real-time weather information and a 24-hour forecast using a chart component. Key features include:
 
