@@ -31,7 +31,7 @@ const DailyForecast = () => {
     },
   ];
   return (
-    <Box className="rounded-xl pt-[34px] pb-[39px]" bg="gray">
+    <Box className="rounded-xl pt-[20px] pb-[30px]" bg="gray">
       <DailyCarousel dais={dais} />
       <AirConditions />
     </Box>

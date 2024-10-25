@@ -8,13 +8,13 @@ import Avatar from "../../assets/avatar.png";
 const Menu = () => {
   return (
     <Box
-      className="hidden lg:block rounded-xl p-[20px] pt-[20px] pb-[20px] "
+      className="hidden lg:block rounded-xl p-[20px] pt-[20px] pb-[15px] "
       bg="gray"
     >
       <Flex className="h-[60px] w-[60px] rounded-full justify-center items-center">
         <img src={Avatar} alt="" />
       </Flex>
-      <Flex className=" flex flex-col  mt-[99px] gap-[22px]">
+      <Flex className=" flex flex-col  mt-[85px] gap-[20px]">
         <Flex className=" flex flex-col items-center ">
           <img src={WeatherIcon} alt="" />
           <Text className="font-inter text-sm text-white">weather</Text>

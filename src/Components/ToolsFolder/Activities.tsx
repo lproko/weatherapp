@@ -35,7 +35,7 @@ const Activities = () => {
           Activities in your area
         </Text>
       </Flex>
-      <Flex className="gap-[21px] mt-9">
+      <Flex className="gap-[21px] mt-6 grow justify-between">
         {areaActivities.map((activity, idx) => {
           return (
             <Flex key={idx} className="flex flex-col">

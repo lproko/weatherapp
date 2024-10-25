@@ -30,11 +30,11 @@ const conditions = [
 
 const AirConditions = () => {
   return (
-    <Box className="mt-[14px] pl-4 relative">
+    <Box className="mt-[10px] pl-4 relative">
       <Text className="font-inter text-white text-base font-bold ">
         AIR CONDITIONS
       </Text>
-      <Flex className="flex flex-col gap-8 mt-5 ">
+      <Flex className="flex flex-col gap-8 mt-4 ">
         {conditions.map((items, idx) => (
           <Flex key={idx}>
             <img src={items.icon} alt="" />
